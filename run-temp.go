@@ -13,7 +13,6 @@ const athleteId int64 = 10081791;
 func main() {
 	// Loop forever in background.
 	tokenManager := tokens.NewTokenManager("/home/ngraves3/gocode/src/github.com/ngraves95/run-temp/tokens/");
-	tokenManager.GetToken("strava_access_token");
 	client := strava.NewClient(tokenManager.GetToken("strava_access_token"));
 
 	// Gives a list of activity summaries with most recent first.
