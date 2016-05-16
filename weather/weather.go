@@ -41,6 +41,7 @@ func BuildWeatherData(latitude float64, longitude float64) *WeatherBuilder {
 
 	return &WeatherBuilder{
 		Json: relevantParts,
+		Opts: make(map[string]string),
 		ConcatenateAfter: false,
 	}
 
