@@ -44,10 +44,17 @@ func main() {
 		lat := location[0];
 		long := location[1];
 
+		// Build our new description, which will include the weather.
+		newDescription := weather.BuildWeatherData(lat, long).
+			Temperature().
+			Humidity().
+			InsertBefore(description).
+			Build();
+
 		// update the activity description to include the temperature.
 		strava.NewActivitiesService(client).
 			Update(targetActivityId).
-			Description(weather.AddWeatherData(lat, long, description)).
+			Description(newDescription).
 			Do();
 	}
 }
